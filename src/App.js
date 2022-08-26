@@ -10,7 +10,9 @@ function App() {
   return (
     <div className="App">
       <Input list={taskList} actButton={setTaskList}/>
-      <Task/>
+      {console.log(taskList)}
+      {taskList.map( (task) => <Task task={task}  actList={setTaskList} list={taskList}/>)}
+
     </div>
   );
 }
