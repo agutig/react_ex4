@@ -1,17 +1,16 @@
-
 import './App.css';
+import Input from './components/input';
+import Task from './components/task';
 import {useState} from 'react'
 
 function App() {
 
-  const numbers = [1, 2, 3, 4, 5];
+  const [taskList ,setTaskList] = useState([]);
 
-  
   return (
     <div className="App">
-
-      {numbers.map( (number) => <p key={number}>{number}</p> )}
-
+      <Input list={taskList} actButton={setTaskList}/>
+      <Task/>
     </div>
   );
 }

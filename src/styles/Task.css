@@ -1,0 +1,14 @@
+
+.taskBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    width: 15vw;
+    margin: auto;
+    margin-top: 1vh;
+}
+
+.completeButton{
+    margin-left: 1vw;
+}
