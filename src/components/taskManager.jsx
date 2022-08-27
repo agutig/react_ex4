@@ -4,7 +4,7 @@ import Input from '../components/input';
 import Task from '../components/task';
 import '../styles/taskManager.css'
 
-function TaskManager(){
+function TaskManager(props){
 
     const [taskList ,setTaskList] = useState([]);
 

@@ -10,16 +10,16 @@ function TaskManagerManager(){
     function addTaskManager() {
         const taskManager = {
 			key: uuidv4(),
-			data: []
+			data: [],
+            name: "Name",
         }
         setTaskManagerList([taskManager, ...taskManagerList])
     }
 
     return(
         <div className='taskManager'>
-            <button>Add list</button>
-            {taskManagerList.map( (taskManager) => <TaskManager/>)}
-            <TaskManager/>
+            <button onClick={() => addTaskManager()}>Add list</button>
+            {taskManagerList.map( (taskManager) => <TaskManager list={taskManager} key={taskManager.key} refresh={setTaskManagerList}/>)}
         </div>
     );
 
