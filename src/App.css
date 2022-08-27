@@ -1,38 +1,46 @@
 .App {
+  display: flex;
+  flex-wrap: wrap;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.subBox1{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  border: 1px green solid;
+  width: 24vw;
 }
 
-.App-link {
-  color: #61dafb;
+.subBox2{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px green solid;
+  width: 49vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.subBox3{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px green solid;
+  width: 24vw;
 }
+
+.timeBox{
+  height: 90vh;
+  border: 2px solid rgb(255, 0, 0);
+}
+
+.taskListBox{
+  margin: auto;
+  height: 80vh;
+  border: 8px black solid;
+}
+
+.taskManagerManager{
+  border: 4px black solid;
+  height: 92vh;
+}
+

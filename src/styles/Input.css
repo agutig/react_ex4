@@ -1,7 +1,12 @@
 
 .inputBox{
     margin: auto;
-    margin-top: 5vh;
-    border: 2px solid black;
-    width: fit-content;
+    width: 30vw;
+    border: 2px black solid;
+    border-radius: 8px;
+    margin-bottom: 1vh;
+}
+
+.inputText{
+    width: 25vw;
 }

@@ -1,18 +1,38 @@
 import './App.css';
-import Input from './components/input';
-import Task from './components/task';
-import {useState} from 'react'
+import TaskManager from './components/taskManager';
+import PersistencyBox from './components/persistencyBox';
+import TaskManagerManager from './components/taskManagerManager';
 
 function App() {
 
-  const [taskList ,setTaskList] = useState([]);
 
   return (
     <div className="App">
-      <Input list={taskList} actButton={setTaskList}/>
-      {console.log(taskList)}
-      {taskList.map( (task) => <Task task={task}  actList={setTaskList} list={taskList}/>)}
 
+      <div className='subBox1'>
+        <div className='timeBox'>
+              <h1>Relojes y Cronometros!</h1>
+              <p>TODO</p>
+        </div>
+        <PersistencyBox/>
+      </div>
+
+      
+      <div className='subBox2'>
+          <h1>Proyecto</h1> 
+          <div className='taskManagerManager'>
+            <TaskManagerManager/>
+          </div>
+      </div>
+
+
+      <div className='subBox3'>
+        <h1>Notas!  TODO</h1>
+        <button>Añadir una nota</button>
+      </div>
+      
+
+      
     </div>
   );
 }

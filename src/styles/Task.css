@@ -1,14 +1,24 @@
 
 .taskBox{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid black;
-    width: 15vw;
+    border: 2px black solid;
+    border-radius: 8px;
+    width: 30vw;
+    text-align: center;
     margin: auto;
     margin-top: 1vh;
 }
 
-.completeButton{
-    margin-left: 1vw;
+.deleteButton{
+
+    width: 2.5vw;
+    text-align: center;
+    
+}
+
+.taskText{
+
+    width: 27.5vw;
+    word-wrap: break-word;
+
 }

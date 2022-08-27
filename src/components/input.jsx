@@ -1,6 +1,7 @@
 import React from 'react'
-import '../styles/Input.css'
+import '../styles/input.css'
 import {useState} from 'react'
+import {v4 as uuidv4} from  'uuid'
 
 function Input(props){
 
@@ -13,7 +14,7 @@ function Input(props){
             const task = {
                 text : text,
                 completed: false,
-                id: id
+                id: uuidv4()
             }
             getId(id +1)
             listAct( [task,...list] )
@@ -22,10 +23,10 @@ function Input(props){
 
     return(
 
-        <div className='inputBox'>
-           <input type="text" value={input} onChange={ev => getInput(ev.target.value)}/> 
+        <span className='inputBox'>
+           <input className='inputText' type="text" value={input} onChange={ev => getInput(ev.target.value)}/> 
            <button onClick={() => createTask(input ,props.list ,props.actButton) }>Add a task!</button>
-        </div>
+        </span>
     );
 }
 

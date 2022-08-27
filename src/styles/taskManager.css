@@ -1,0 +1,11 @@
+
+
+.taskManager{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 40vw;
+    margin: auto;
+    margin-top: 1vh;
+}

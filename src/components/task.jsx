@@ -1,23 +1,42 @@
 import React from 'react'
-import '../styles/Task.css'
+import '../styles/task.css'
 
 function Input(props){
 
+    function completeButton(){
+
+        const refreshedTaskList = props.list.map( listTask => {
+            if(props.task.id === listTask.id){
+                listTask.completed = !listTask.completed ;
+
+            }
+            return listTask;
+        }
+        );
+        props.actList(refreshedTaskList)
+    
+    }
+
+    function deleteTask(){
+        const refreshedTaskList = props.list.filter( listTask => listTask.id !== props.task.id)
+	    props.actList(refreshedTaskList)
+
+    }
+
 
     function completed_task(isCompleted){
-        console.log(props.task)
         if (isCompleted === false){
             return(
-                <div className='taskBox'>
-                    <p>{props.task.text}</p>
-                    <button className='completeButton' >Complete</button>     
+                <div className='taskBox' >
+                    <span className='taskText' onClick={() => completeButton()}>{props.task.text}</span>
+                    <button className='deleteButton' onClick={ () => deleteTask()} >Delete</button>     
                 </div>
             )
         }else{
             return(
-                <div className='taskBox'>
-                    <strike>{props.task.text}</strike>
-                    <button className='completeButton'>Delete</button>
+                <div className='taskBox' >
+                    <span className='taskText'  onClick={() => completeButton()}><strike>{props.task.text}</strike></span>
+                    <button className='deleteButton' onClick={ () => deleteTask()} >Delete</button>
                            
                 </div>
             )
