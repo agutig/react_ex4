@@ -9,3 +9,12 @@
     margin: auto;
     margin-top: 1vh;
 }
+
+
+.taskTittle{
+    border: 0ch;
+    outline: none;
+    font-size: 3vh;
+    text-align: center;
+    text-decoration: underline;
+}

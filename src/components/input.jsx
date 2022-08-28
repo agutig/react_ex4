@@ -7,25 +7,32 @@ function Input(props){
 
     const [input ,getInput] = useState("");
 
-    const [id ,getId] = useState(0);
+    function createTask(text,db, refresh ,id){
 
-    function createTask(text,list, listAct){
-        if (text !== ''){
-            const task = {
-                text : text,
-                completed: false,
-                id: uuidv4()
+        const refreshedTMM = db.map( taskManager => {
+
+            if(id === taskManager.id){
+                if (text !== ''){
+                    let task = {
+                        text : text,
+                        completed: false,
+                        id: uuidv4()
+                    }
+                    taskManager.data = [task,...taskManager.data]
+                }
             }
-            getId(id +1)
-            listAct( [task,...list] )
+            return taskManager;
         }
+        );
+        refresh(refreshedTMM)
+
     }
 
     return(
 
         <span className='inputBox'>
            <input className='inputText' type="text" value={input} onChange={ev => getInput(ev.target.value)}/> 
-           <button onClick={() => createTask(input ,props.list ,props.actButton) }>Add a task!</button>
+           <button onClick={() => createTask(input ,props.db ,props.refresh , props.id_TM)  }>Add a task!</button>
         </span>
     );
 }

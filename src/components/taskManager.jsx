@@ -1,18 +1,32 @@
-import React from 'react'
-import {useState} from 'react'
+import React, { useState } from 'react'
 import Input from '../components/input';
 import Task from '../components/task';
 import '../styles/taskManager.css'
 
+
 function TaskManager(props){
 
-    const [taskList ,setTaskList] = useState([]);
+    const [name , setName] = useState(props.list.name)
+
+    function refreshName(ev) {
+
+        setName(ev.target.value)
+        const refreshedName = props.db.map(TM => {
+            console.log(props.db)
+            if(props.list.id === TM.id ) {
+                TM.name = name;
+            }
+            return TM
+        })
+        props.refresh(refreshedName)
+    }
+
 
     return(
         <div className='taskManager'>
-            <h1>Nombre Lista</h1>
-            <Input list={taskList} actButton={setTaskList}/>
-            {taskList.map( (task) => <Task task={task}  actList={setTaskList} list={taskList}/>)}
+            <input onChange={ev => refreshName(ev)}  className='taskTittle' value={name}/>
+            <Input db={props.db} refresh={props.refresh} id_TM={props.list.id}/>
+            {props.list.data.map( (task) => <Task task={task} id_TM={props.list.id} key={task.id} refresh={props.refresh} db={props.db}/>)}
         </div>
     );
 

@@ -2,6 +2,7 @@ import './App.css';
 import TaskManager from './components/taskManager';
 import PersistencyBox from './components/persistencyBox';
 import TaskManagerManager from './components/taskManagerManager';
+import NotesManager from './components/notesManager';
 
 function App() {
 
@@ -27,8 +28,7 @@ function App() {
 
 
       <div className='subBox3'>
-        <h1>Notas!  TODO</h1>
-        <button>Añadir una nota</button>
+          <NotesManager></NotesManager>
       </div>
       
 
