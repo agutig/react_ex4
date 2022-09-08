@@ -1,27 +1,34 @@
 import React from 'react'
-import {useState} from 'react'
+import '../styles/note.css'
 
 
 function Note(props){
 
-    const [text, setText] = useState(props.list.name)
+   
+    let text = props.text
+
 
     function refreshText(ev) {
 
-        setText(ev.target.value)
-        const refreshedText= props.db.map(TM => {
-            console.log(props.db)
-            if(props.list.id === TM.id ) {
-                TM.text = text;
+        text = ev.target.value;
+        const refreshedText= props.list.map(note => {
+            
+            if(props.id === note.id ) {
+                note.text = ev.target.value;
             }
-            return TM
+            console.log(note.text)
+            return note
         })
         props.refresh(refreshedText)
     }
 
+
+    /* EN EL INPUT:    */
+
     return(
-        <div>
-            <input onChange={ev => refreshText(ev)}  className='note' value='hola'/>
+        <div className='noteContainer'>
+            <textarea onChange={ev => refreshText(ev)} className='noteInput' value={text}/>
+            <button className='noteButton' >-</button>
         </div>
     );
 

@@ -1,0 +1,27 @@
+
+.noteContainer{
+    border: 2px red solid;
+    max-height: 15vh;
+    margin-top: 1vh;
+    word-wrap: break-word;
+    display: flex;
+}
+
+.noteInput{
+
+    border: none;
+    font-size: 2vh;
+    max-height: 12vh;
+    min-height: fit-content;
+    height: max-content;
+    width: 24vw;
+    word-wrap: break-word;
+    text-align: left;
+    resize: vertical;
+
+}
+
+.noteButton{
+    width: 3vw;
+    border-radius: 20px;
+}
