@@ -1,11 +1,15 @@
 import './App.css';
-import TaskManager from './components/taskManager';
 import PersistencyBox from './components/persistencyBox';
 import TaskManagerManager from './components/taskManagerManager';
 import NotesManager from './components/notesManager';
 
 function App() {
 
+  /*
+  If by any reason you are reading the code of this proyect im sorry to inform you that the data managing is 
+  structured using a lot of react bad practices. This is because the main reason of this proyect is pracitcing and understanding 
+  better this library and the posible combination with other libraries (redux)
+  */
 
   return (
     <div className="App">
