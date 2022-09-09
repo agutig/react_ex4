@@ -1,7 +1,28 @@
 .App {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   text-align: center;
+}
+
+.tittle{
+  margin: auto;
+  margin-top: 1vh;
+  font-size: 4vh;
+  width: fit-content;
+  text-align: center;
+
+}
+
+.subtittle{
+  margin-top: 0%;
+  font-size: 2vh;
+}
+
+
+.mainBox{
+  display: flex;
+  flex-direction: row;
 }
 
 .subBox1{
@@ -43,4 +64,6 @@
   border: 4px black solid;
   height: 92vh;
 }
+
+
 

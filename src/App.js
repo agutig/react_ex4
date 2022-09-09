@@ -2,6 +2,7 @@ import './App.css';
 import PersistencyBox from './components/persistencyBox';
 import TaskManagerManager from './components/taskManagerManager';
 import NotesManager from './components/notesManager';
+import {useState} from 'react'
 
 function App() {
 
@@ -10,32 +11,35 @@ function App() {
   structured using a lot of react bad practices. This is because the main reason of this proyect is pracitcing and understanding 
   better this library and the posible combination with other libraries (redux)
   */
+  const [tittle,getTittle] = useState("Proyect Name");
 
   return (
     <div className="App">
+      <input type='text' value={tittle} onChange={ev => getTittle(ev.target.value)} className='tittle' />
+      <h3 className='subtittle'><em> &nbsp; &nbsp; &nbsp; by Short Workflow</em></h3>
 
-      <div className='subBox1'>
-        <div className='timeBox'>
-              <h1>Relojes y Cronometros!</h1>
-              <p>TODO</p>
-        </div>
-        <PersistencyBox/>
-      </div>
-
-      
-      <div className='subBox2'>
-          <h1>Proyecto</h1> 
-          <div className='taskManagerManager'>
-            <TaskManagerManager/>
+      <div className='mainBox'>
+        <div className='subBox1'>
+          <div className='timeBox'>
+                <h1>Relojes y Cronometros!</h1>
+                <p>TODO</p>
           </div>
-      </div>
+          <PersistencyBox/>
+        </div>
+
+        
+        <div className='subBox2'>
+            <div className='taskManagerManager'>
+              <TaskManagerManager/>
+            </div>
+        </div>
 
 
-      <div className='subBox3'>
-          <NotesManager></NotesManager>
-      </div>
+        <div className='subBox3'>
+            <NotesManager></NotesManager>
+        </div>
       
-
+      </div>
       
     </div>
   );

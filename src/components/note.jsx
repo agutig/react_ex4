@@ -22,13 +22,16 @@ function Note(props){
         props.refresh(refreshedText)
     }
 
+    function deleteNote() {
 
-    /* EN EL INPUT:    */
+        let refreshedList = props.list.filter( listTask => listTask.id !== props.id)
+        props.refresh( refreshedList)
+    }
 
     return(
         <div className='noteContainer'>
             <textarea onChange={ev => refreshText(ev)} className='noteInput' value={text}/>
-            <button className='noteButton' >-</button>
+            <button className='noteButton' onClick={() => deleteNote()} >-</button>
         </div>
     );
 

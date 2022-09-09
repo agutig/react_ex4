@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/task.css'
+import '../styles/Task.css'
 
 function Input(props){
 

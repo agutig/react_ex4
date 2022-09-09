@@ -13,7 +13,7 @@ function NotesManager(){
             text : "Write a note!"
         }
 
-        setNotesList([newNote,...notesList])
+        setNotesList([...notesList,newNote])
     }
 
     return(
