@@ -3,6 +3,7 @@ import PersistencyBox from './components/persistencyBox';
 import TaskManagerManager from './components/taskManagerManager';
 import NotesManager from './components/notesManager';
 import {useState} from 'react'
+import TimeManager from './components/timeManager';
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
         <div className='subBox1'>
           <div className='timeBox'>
                 <h1>Relojes y Cronometros!</h1>
-                <p>TODO</p>
+                <TimeManager></TimeManager>
           </div>
           <PersistencyBox/>
         </div>

@@ -1,0 +1,57 @@
+.clockContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: auto;
+    border: 5px black solid;
+    border-radius: 8px;
+    height: 12vh;
+}
+
+.clockBody{
+    border-right: 2px black solid;
+}
+
+.clockConf{
+    border: 2px red solid;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: auto;
+    width: 10vw;
+}
+
+.confButton{
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0);
+    width: 5vw;
+}
+
+.secDiv{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 6vw;
+    margin: auto;
+}
+
+.hourMin{
+    margin: auto;
+    margin-top: 0%;
+    font-size: 5vh;
+    width: 10vw;
+}
+
+.seconds{
+    margin: auto;
+    margin-top: 0%;
+    font-size: 3vh;
+}
+
+.secButton{
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0);
+}
