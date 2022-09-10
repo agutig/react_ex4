@@ -4,17 +4,100 @@ import '../styles/clock.css'
 
 function Clock(){
 
-    const [date,getDate] = useState( new Date());
+    //Clock mechanism
+    const [data,getData] = useState( new Date());
+
+    useEffect(() => {
+        setInterval(() => getData (new Date()), 1000);
+    },[]);
+
+    //
+
+
+    // Date adaptation
+
+    const [date,getDate] = useState({
+        hour:"1",
+        minutes: "2",
+        seconds: "43",
+        timezone: "LOCAL",
+    });
+
+    const [ubication,getUbication] = useState(0);
     
     const [activated,getActivated] = useState(true);
 
     useEffect(() => {
-        setInterval(() => getDate(new Date()), 1000);
-    }, []);
+
+        let newDate = {
+            hour:"1",
+            minutes: "2",
+            seconds: "43",
+            timezone: "LOCAL",
+        }
+
+        switch(ubication){
+            case 0:  //local
+                
+                newDate.hour = ("0" + data.getHours()).slice(-2)
+                newDate.minutes = ("0" + data.getMinutes()).slice(-2)
+                newDate.seconds = ("0" + data.getSeconds()).slice(-2)
+                newDate.timezone = "LOCAL"
+                getDate(newDate)
+                break;
+
+            case 1:  //TOKIO
+                newDate.hour = ("0" + ((data.getUTCHours()+24 + 9) %  24  )).slice(-2)
+                newDate.minutes = ("0" + data.getUTCMinutes()).slice(-2)
+                newDate.seconds = ("0" + data.getUTCSeconds()).slice(-2)
+                newDate.timezone = "TOKIO"
+                getDate(newDate)
+                break;
+
+            case 2:  //BERLIN
+                newDate.hour = ("0" + ((data.getUTCHours()+24 + 2) %  24  )).slice(-2)
+                newDate.minutes = ("0" + data.getUTCMinutes()).slice(-2)
+                newDate.seconds = ("0" + data.getUTCSeconds()).slice(-2)
+                newDate.timezone = "BERLIN"
+                getDate(newDate)
+            break;
+
+            case 3:  //New York
+                newDate.hour = ("0" + ((data.getUTCHours()+24 -4) %  24  )).slice(-2)
+                newDate.minutes = ("0" + data.getUTCMinutes()).slice(-2)
+                newDate.seconds = ("0" + data.getUTCSeconds()).slice(-2)
+                newDate.timezone = "NY"
+                getDate(newDate)
+            break;
+
+            case 4:  //PEKIN
+                newDate.hour = ("0" + ((data.getUTCHours()+24 + 8) %  24  )).slice(-2)
+                newDate.minutes = ("0" + data.getUTCMinutes()).slice(-2)
+                newDate.seconds = ("0" + data.getUTCSeconds()).slice(-2)
+                newDate.timezone = "BEIJING"
+                getDate(newDate)
+            break;
+
+            case 5:  // CLOSE 
+                console.log("TODO")
+            break;
+
+            default:
+                newDate.hour = ("0" + data.getHours()).slice(-2)
+                newDate.minutes = ("0" + data.getMinutes()).slice(-2)
+                newDate.seconds = ("0" + data.getSeconds()).slice(-2)
+                newDate.timezone = "LOCAL"
+                getDate(newDate)
+                break;
+
+        }
+        // Algortimo de calculo zona horaria console.log((1 +(24 + offset)) % 24)
+    },[data ,ubication]);
+
 
     function secondsVisualitation(){
         if(activated === true){ 
-            return(<p className='seconds'> { ("0" + date.getSeconds()).slice(-2)} </p>)
+            return(<p className='seconds'> { date.seconds} </p>)
         }else{ 
             return(<p className='seconds'> △ </p>)}
     }
@@ -22,8 +105,9 @@ function Clock(){
     return(
         
         <div className='clockContainer'>
+            <p className='ubText'>{date.timezone}</p>
             <div className='clockBody'>
-                <p className='hourMin'>{ ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2)}</p>
+                <p className='hourMin'>{ date.hour + ":" + date.minutes}</p>
                 <div className='secDiv'>
                     <button onClick={() => getActivated(!activated)} className='secButton'>Sec</button>
                     {secondsVisualitation()}
@@ -31,16 +115,16 @@ function Clock(){
             </div>
             <div className='clockConf'>
                 <span>
-                    <button  className='confButton' >Local</button>
-                    <button className='confButton'>X</button>
+                    <button  className='confButton' onClick={() => getUbication(0)} >LOCAL</button>
+                    <button className='confButton' onClick={() => getUbication(5)} >X</button>
                 </span>
                 <span>
-                    <button className='confButton'>Japan</button>
-                    <button className='confButton'>Germany</button>
+                    <button className='confButton' onClick={() => getUbication(1)}>TOKIO</button>
+                    <button className='confButton' onClick={() => getUbication(2)}>BERLIN</button>
                 </span>
                 <span>
-                    <button className='confButton'>US</button>
-                    <button className='confButton'>IND</button>
+                    <button className='confButton' onClick={() => getUbication(3)}>NEW YORK</button>
+                    <button className='confButton' onClick={() => getUbication(4)}>BEIJING</button>
                 </span>
                 
 

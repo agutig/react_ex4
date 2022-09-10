@@ -9,6 +9,14 @@
     height: 12vh;
 }
 
+.ubText{
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    margin-right: -1vw;
+    font-weight: 800;
+    letter-spacing: 0.5vh;
+}
+
 .clockBody{
     border-right: 2px black solid;
 }
