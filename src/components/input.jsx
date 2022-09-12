@@ -5,7 +5,7 @@ import {v4 as uuidv4} from  'uuid'
  
 function Input(props){
 
-    const [input ,getInput] = useState(" ");
+    const [input ,getInput] = useState("");
 
     function createTask(text,db, refresh ,id){
 
