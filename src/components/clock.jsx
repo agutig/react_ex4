@@ -123,7 +123,7 @@ function Clock(){
                     <button className='confButton' onClick={() => getUbication(2)}>BERLIN</button>
                 </span>
                 <span>
-                    <button className='confButton' onClick={() => getUbication(3)}>NEW YORK</button>
+                    <button className='confButton' onClick={() => getUbication(3)}>NY</button>
                     <button className='confButton' onClick={() => getUbication(4)}>BEIJING</button>
                 </span>
                 
