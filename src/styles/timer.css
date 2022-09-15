@@ -1,0 +1,49 @@
+.fullContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: auto;
+    border: 5px black solid;
+    border-radius: 8px;
+    height:fit-content;
+}
+
+
+.timerContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: auto;
+    border: 5px black solid;
+    border-radius: 8px;
+    height: fit-content;
+    width: 25vw;
+}
+
+.clockText{
+    font-size: 5vh;
+    margin: auto;
+}
+
+.inputBox{
+    display: flex;
+    flex-direction: row;
+}
+
+.buttonsBox{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.timeSelectorBox{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.inputTime{
+    width: 2.5vw;
+}

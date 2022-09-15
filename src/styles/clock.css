@@ -4,9 +4,11 @@
     flex-wrap: wrap;
     text-align: center;
     margin: auto;
-    border: 5px black solid;
+    margin-top: 1vh;
+    border: 5px rgb(201, 102, 102) solid;
     border-radius: 8px;
     height: 12vh;
+    width: 23vw;
 }
 
 .ubText{
