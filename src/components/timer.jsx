@@ -4,9 +4,11 @@ import '../styles/timer.css'
 
 function Timer(){
 
-    const [count , setCount] = useState(0);
 
+    const [count , setCount] = useState(0);
     const [timer , setTimer] = useState(0);
+
+    const [format , setFormat] = useState({hour: "00" , minutes: "00" , seconds: "00"});
 
     let hours = 0;
     let minutes = 0;
@@ -14,30 +16,38 @@ function Timer(){
 
     let count_altern = 0;
 
-    function addSecond(){
-
-        count_altern++;
-        console.log(count_altern)
-        setCount(count_altern);
-    }
-
 
     useEffect(() => {
         //console.log(hours +  ":" + minutes +  ":" + seconds +  ":" + count )
-        
-        setInterval(() =>  addSecond(), 1000);
-        
-        
-    },[]);
+        console.log("time:" + timer)
+        console.log("count:" + count)
+        if(count !== 0){
+            let interval = setInterval(() => { setCount(count - 1)},1000)
+            secondsToFormat()
+            
+            return(() => {
+                clearInterval(interval)
+            })
+        }
+
+    },[count]);
+
 
     function formatToSeconds(hours, minutes, seconds){
-              
         return (parseInt(hours)*3600 + parseInt(minutes)*60 + parseInt(seconds))
     }
 
+    function secondsToFormat(){
+        let hour = Math.trunc(count/3600)
+        let minutes =  Math.trunc((count - hour*3600)/60)
+        let seconds = Math.trunc((count - (hour*3600 + minutes*60))) 
+        setFormat({hour: ("0"+hour).slice(-2) , minutes: ("0" + minutes).slice(-2) , seconds: ("0"+seconds).slice(-2)})
+    }
+
     function startTimer( hours, minutes, seconds){
-        //let timeToStop = formatToSeconds(hours,minutes,seconds)
-        setTimer(0,0,0)
+        let timeToStop = formatToSeconds(5,8,30)
+        setTimer(timeToStop)
+        setCount(timeToStop)
     }
 
     return(
@@ -67,8 +77,10 @@ function Timer(){
             </div>
 
             <div className='timerContainer'>
-                <p className='clockText'>{count}</p>
+                <p className='clockText'>{format.hour + ":" + format.minutes + ":" + format.seconds}</p>
             </div>
+
+            
         </div>
     );
 
