@@ -22,7 +22,6 @@ function App() {
       <div className='mainBox'>
         <div className='subBox1'>
           <div className='timeBox'>
-                <h1>Relojes y Cronometros!</h1>
                 <TimeManager></TimeManager>
           </div>
           <PersistencyBox/>
