@@ -3,15 +3,15 @@ import {useState ,useEffect} from 'react'
 import '../styles/timer.css'
 import sound from '../assets/sound_notification.mp3'
 
-function Timer(){
+function Timer(props){
 
 
     const [count , setCount] = useState(0);
-    const [timer , setTimer] = useState(0);
 
-    const [ hours , setHours] = useState(0);
-    const [ minutes , setMinutes] = useState(0);
-    const [ seconds , setSeconds] = useState(0);
+    console.log()
+    const [ hours , setHours] = useState(props.component.data.hours);
+    const [ minutes , setMinutes] = useState(props.component.data.minutes);
+    const [ seconds , setSeconds] = useState(props.component.data.seconds);
 
     const [ stopCount , setStopCount] = useState(false);
     const [format , setFormat] = useState({hour: "00" , minutes: "00" , seconds: "00"});
@@ -23,7 +23,7 @@ function Timer(){
             let interval = setInterval(() => { setCount(count - 1)},1000)
             secondsToFormat()
 
-            if (count === 0){
+            if (count === 1){
                 new Audio(sound).play();
             }
             
@@ -49,7 +49,6 @@ function Timer(){
 
     function startTimer(){
         let timeToStop = formatToSeconds(hours,minutes,seconds)
-        setTimer(timeToStop)
         setCount(timeToStop)
         secondsToFormat()
     }
@@ -61,6 +60,12 @@ function Timer(){
         }else{
             return(<button onClick={() => setStopCount(!stopCount)}>Stop timer</button>);
         }
+    }
+
+    function closeTimer(){
+        console.log(props)
+        let refreshedList = props.list.filter( listClock => listClock.id !== props.component.id)
+        props.refresh( refreshedList)
     }
 
     return(
@@ -85,7 +90,7 @@ function Timer(){
                 <div className='buttonsBox'>
                     <button onClick={() => startTimer()}>Start timer</button>
                     {stopTimer()}
-                    <button>X</button>
+                    <button onClick={() => closeTimer()}>X</button>
                 </div>
                 
             </div>
