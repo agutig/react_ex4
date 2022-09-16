@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState ,useEffect} from 'react'
 import '../styles/timer.css'
+import sound from '../assets/sound_notification.mp3'
 
 function Timer(){
 
@@ -8,29 +9,31 @@ function Timer(){
     const [count , setCount] = useState(0);
     const [timer , setTimer] = useState(0);
 
+    const [ hours , setHours] = useState(0);
+    const [ minutes , setMinutes] = useState(0);
+    const [ seconds , setSeconds] = useState(0);
+
+    const [ stopCount , setStopCount] = useState(false);
     const [format , setFormat] = useState({hour: "00" , minutes: "00" , seconds: "00"});
-
-    let hours = 0;
-    let minutes = 0;
-    let seconds = 0;
-
-    let count_altern = 0;
 
 
     useEffect(() => {
-        //console.log(hours +  ":" + minutes +  ":" + seconds +  ":" + count )
-        console.log("time:" + timer)
-        console.log("count:" + count)
-        if(count !== 0){
+        
+        if(count >= 0 && !stopCount){
             let interval = setInterval(() => { setCount(count - 1)},1000)
             secondsToFormat()
+
+            if (count === 0){
+                new Audio(sound).play();
+            }
             
             return(() => {
                 clearInterval(interval)
             })
+
         }
 
-    },[count]);
+    },[count , stopCount, hours, minutes,seconds]);
 
 
     function formatToSeconds(hours, minutes, seconds){
@@ -44,34 +47,45 @@ function Timer(){
         setFormat({hour: ("0"+hour).slice(-2) , minutes: ("0" + minutes).slice(-2) , seconds: ("0"+seconds).slice(-2)})
     }
 
-    function startTimer( hours, minutes, seconds){
-        let timeToStop = formatToSeconds(5,8,30)
+    function startTimer(){
+        let timeToStop = formatToSeconds(hours,minutes,seconds)
         setTimer(timeToStop)
         setCount(timeToStop)
+        secondsToFormat()
+    }
+
+    function stopTimer(){
+
+        if (stopCount){
+            return(<button onClick={() => setStopCount(!stopCount)}>Resume timer</button>);
+        }else{
+            return(<button onClick={() => setStopCount(!stopCount)}>Stop timer</button>);
+        }
     }
 
     return(
         <div className='fullContainer'>
 
-            <div className='inputBox'>
+            <div className='inputTimeBox'>
                 <div className='timeSelectorBox'>
-                    <p>Hours</p>
-                    <input type='number' placeholder='00' className='inputTime' onChange={ev => hours = ev.target.value}/>
+                    <p className='timeSelectorText'>Hours</p>
+                    <input type='number' min="0" placeholder='00' className='inputTime' onChange={ev => setHours(ev.target.value)}/>
                 </div>
 
                 <div className='timeSelectorBox'>
-                    <p>Minutes</p>
-                    <input type='number' placeholder='00' className='inputTime'  onChange={ev => minutes = ev.target.value}/>
+                    <p className='timeSelectorText'>Minutes</p>
+                    <input type='number' min="0" placeholder='00' className='inputTime'  onChange={ev => setMinutes(ev.target.value)}/>
                 </div>
 
                 <div className='timeSelectorBox'>
-                    <p>Seconds</p>
-                    <input type='number' placeholder='00' className='inputTime'  onChange={ev => seconds = ev.target.value}/>
+                    <p className='timeSelectorText'>Seconds</p>
+                    <input type='number' min="0" step="1" placeholder='00' className='inputTime'  onChange={ev => setSeconds(ev.target.value)}/>
                 </div>
 
                 <div className='buttonsBox'>
-                    <button onClick={() => startTimer(hours,minutes ,seconds)}>Start timer</button>
-                    <button>Stop timer</button>
+                    <button onClick={() => startTimer()}>Start timer</button>
+                    {stopTimer()}
+                    <button>X</button>
                 </div>
                 
             </div>
