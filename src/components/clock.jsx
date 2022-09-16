@@ -2,7 +2,7 @@ import React from 'react'
 import {useState ,useEffect} from 'react'
 import '../styles/clock.css'
 
-function Clock(){
+function Clock(props){
 
     //Clock mechanism
     const [data,getData] = useState( new Date());
@@ -23,7 +23,7 @@ function Clock(){
         timezone: "LOCAL",
     });
 
-    const [ubication,getUbication] = useState(0);
+    const [ubication,getUbication] = useState(props.component.location);
     
     const [activated,getActivated] = useState(true);
 
@@ -79,7 +79,7 @@ function Clock(){
             break;
 
             case 5:  // CLOSE 
-                console.log("TODO")
+                closeClock()
             break;
 
             default:
@@ -100,6 +100,13 @@ function Clock(){
             return(<p className='seconds'> { date.seconds} </p>)
         }else{ 
             return(<p className='seconds'> △ </p>)}
+    }
+
+    function closeClock(){
+        console.log(props)
+        let refreshedList = props.list.filter( listClock => listClock.id !== props.component.id)
+        props.refresh( refreshedList)
+        
     }
 
     return(

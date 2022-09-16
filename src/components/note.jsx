@@ -16,7 +16,6 @@ function Note(props){
             if(props.id === note.id ) {
                 note.text = ev.target.value;
             }
-            console.log(note.text)
             return note
         })
         props.refresh(refreshedText)

@@ -24,15 +24,24 @@ function TimeManager(){
                 id: uuidv4(),
                 component: clock()
             }
-            setTimeManagerList(component,...timeManagerList)
+            setTimeManagerList([component , ...timeManagerList])
         }else{
             const component = {
                 type: type,
                 id: uuidv4(),
                 component: timer()
             }
-            setTimeManagerList(component,...timeManagerList)
+            setTimeManagerList([component,...timeManagerList])
         }
+    }
+
+    function createComponent(component){
+        if (component.type == "clock"){
+                return <Clock component={component}  list={timeManagerList} refresh={setTimeManagerList} />
+            }else{
+                return <Timer/>
+            }
+        
     }
 
     return(
@@ -43,7 +52,7 @@ function TimeManager(){
                 <button onClick={() => newComponent("timer")}>Add Timer</button>
             </div>
             <div className='timeList'>
-                
+                {timeManagerList.map( (componente)  => createComponent(componente) )  }
             </div>
         </div>
     );
