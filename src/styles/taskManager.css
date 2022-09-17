@@ -15,15 +15,42 @@
               0 16px 16px rgba(0,0,0,0.05);
 }
 
-.TMM_controls{
+.TM_controls{
     display: flex;
     flex-direction: row;
+    background-color: #f7f7f700;
+    text-align: center;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.25), 
+              0 2px 2px rgba(0,0,0,0.20), 
+              0 4px 4px rgba(0,0,0,0.15), 
+              0 8px 8px rgba(0,0,0,0.10),
+              0 16px 16px rgba(0,0,0,0.05);
+    margin: auto;
+    border-radius: 8px;
 }
 
 .taskTittle{
-    border: 0ch;
-    outline: none;
-    font-size: 3vh;
+    background-color: #f7f7f700;
+    border: none;
+    font-size: 2vw;
+    font-weight: 600;
+    width: 24vw;
+    color: #f7f7f7;
+    
+}
+
+.taskCloseButton{
+    font-size: 4vh;
+    font-weight: 700;
     text-align: center;
-    text-decoration: underline;
+    border-radius: 8px;
+    width: 2.5vw;
+    border: 1px solid #272727;
+    color: #e1e1e1;
+    background-color: #3b3b3b;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.25), 
+              0 2px 2px rgba(0,0,0,0.20), 
+              0 4px 4px rgba(0,0,0,0.15), 
+              0 8px 8px rgba(0,0,0,0.10),
+              0 16px 16px rgba(0,0,0,0.05);
 }

@@ -12,7 +12,7 @@ function TaskManagerManager(){
         const taskManager = {
 			id: uuidv4(),
 			data: [],
-            name: "Name",
+            name: "List Name",
         }
         setTaskManagerList([...taskManagerList ,taskManager])
     }

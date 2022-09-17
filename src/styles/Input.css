@@ -1,14 +1,17 @@
 
-.inputBox{
+.inputBoxI{
     display: flex;
     flex-direction: row;
     margin: auto;
-    width: 30vw;
-    border: 2px black solid;
-    border-radius: 8px;
-    margin-bottom: 1vh;
+    margin-top: 1vh;
+    margin-left: 7vw;
 }
 
-.inputText{
-    width: 25vw;
+.inputBoxText{
+    width: 22.5vw;
+}
+
+.inputBoxButton{
+    width: 2vw;
+
 }

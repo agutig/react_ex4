@@ -39,17 +39,23 @@ function Input(props){
     function completed_task(isCompleted){
         if (isCompleted === false){
             return(
-                <div className='taskBox' >
-                    <span className='taskText' onClick={() => completeButton()}>{props.task.text}</span>
-                    <button className='deleteButton' onClick={ () => deleteTask()} >Delete</button>     
+                <div className='pointTaskBox'>
+                    <p> ⊳</p>
+                    <div className='taskBox' >
+                        <span className='taskText' onClick={() => completeButton()}>{props.task.text}</span>
+                        <button className='deleteButton' onClick={ () => deleteTask()} >-</button>     
+                    </div>
                 </div>
             )
         }else{
             return(
-                <div className='taskBox' >
-                    <span className='taskText'  onClick={() => completeButton()}><strike>{props.task.text}</strike></span>
-                    <button className='deleteButton' onClick={ () => deleteTask()} >Delete</button>
-                           
+                <div className='pointTaskBox'>
+                    <p> ⊳</p>
+                    <div className='taskBox' >
+                        <span className='taskText'  onClick={() => completeButton()}> <strike>{props.task.text}</strike></span>
+                        <button className='deleteButton' onClick={ () => deleteTask()} >-</button>
+                            
+                    </div>
                 </div>
             )
         }

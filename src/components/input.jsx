@@ -30,9 +30,9 @@ function Input(props){
 
     return(
 
-        <span className='inputBox'>
-           <input className='inputText' type="text" value={input} onChange={ev => getInput(ev.target.value)}/> 
-           <button onClick={() => createTask(input ,props.db ,props.refresh , props.id_TM)  }>Add a task!</button>
+        <span className='inputBoxI'>
+           <input className='inputBoxText' placeholder='Write a task!' type="text" value={input} onChange={ev => getInput(ev.target.value)}/> 
+           <button className='inputBoxButton' onClick={() => createTask(input ,props.db ,props.refresh , props.id_TM)  }>+</button>
         </span>
     );
 }
