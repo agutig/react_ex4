@@ -21,8 +21,10 @@ function TaskManagerManager(){
 
     return(
         <div className='taskManagerManager'>
-            <h1>Lists</h1>
-            <button onClick={() => addTaskManager()}>Add list</button>
+            <div className='TMMTitle'>
+                <p className='TMMTitleText'>Lists</p>
+                <button className='TMMTitleButton' onClick={() => addTaskManager()}>+</button>
+            </div>
             {taskManagerList.map( (taskManager) => <TaskManager list={taskManager} key={taskManager.id} db={taskManagerList} refresh={setTaskManagerList}/>)}
         </div>
     );

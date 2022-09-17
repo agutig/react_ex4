@@ -4,4 +4,32 @@
     width: 40vw;
     margin: auto;
     margin-top: 0%;
+    background-color: #626262;
+  }
+
+  .TMMTitle{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    text-align: center;
+    width: fit-content;
+  
+  }
+
+  .TMMTitleText{
+    margin: auto;
+    font-size: 3vw;
+    font-weight: 900;
+    width: 10vw;
+    letter-spacing: 0.5vw;
+  }
+
+  .TMMTitleButton{
+    margin-top: 2vh;
+    width: 5vh;
+    height: 5vh;
+    font-size: 3vh;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 50%;
   }
