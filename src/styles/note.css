@@ -1,15 +1,20 @@
 
 .noteContainer{
-    border: 2px red solid;
+    border: 3px rgb(51, 51, 51) solid;
+    border-radius: 8px;
     max-height: 15vh;
     margin-top: 1vh;
     word-wrap: break-word;
     display: flex;
+    width: 25vw;
+    margin: auto;
+    margin-top: 1vh;
 }
 
 .noteInput{
 
     border: none;
+    border-radius: 16px;
     font-size: 2vh;
     max-height: 12vh;
     min-height: fit-content;

@@ -29,9 +29,7 @@ function App() {
 
         
         <div className='subBox2'>
-            <div className='taskManagerManager'>
               <TaskManagerManager/>
-            </div>
         </div>
 
 

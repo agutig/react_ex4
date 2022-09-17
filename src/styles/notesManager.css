@@ -1,0 +1,11 @@
+
+.notesManager{
+    border: 2px black solid;
+    border-radius: 16px;
+}
+
+.notesManagerTittle{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}

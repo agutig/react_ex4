@@ -24,7 +24,10 @@ function TaskManager(props){
 
     return(
         <div className='taskManager'>
-            <input onChange={ev => refreshName(ev)}  className='taskTittle' value={name}/>
+            <div className='TM_controls'>
+                <input onChange={ev => refreshName(ev)}  className='taskTittle' value={name}/>
+                <button>X</button>
+            </div>
             <Input db={props.db} refresh={props.refresh} id_TM={props.list.id}/>
             {props.list.data.map( (task) => <Task task={task} id_TM={props.list.id} key={task.id} refresh={props.refresh} db={props.db}/>)}
         </div>

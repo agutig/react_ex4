@@ -3,11 +3,17 @@
 .taskManager{
     display: flex;
     flex-direction: column;
-    width: 40vw;
+    width: 35vw;
     margin: auto;
     margin-top: 1vh;
+    border: 5px solid #000000;
+    border-radius: 10px;
 }
 
+.TMM_controls{
+    display: flex;
+    flex-direction: row;
+}
 
 .taskTittle{
     border: 0ch;

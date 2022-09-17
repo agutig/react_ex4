@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Note from './note';
 import {v4 as uuidv4} from  'uuid'
+import '../styles/notesManager.css'
 
 
 function NotesManager(){
@@ -17,9 +18,12 @@ function NotesManager(){
     }
 
     return(
-        <div>
-            <h1>Notes</h1>
-            <button onClick={() => addNote()} >Add a note</button>
+        <div className='notesManager'>
+            <div className='notesManagerTittle'>
+                <h1>Notes</h1>
+                <button onClick={() => addNote()} >+</button>
+            </div>
+            
             {notesList.map((note) => <Note list={notesList} refresh={setNotesList} text={note.text} id={note.id} key={note.id}/>)}
         </div>
     );

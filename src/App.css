@@ -30,7 +30,9 @@
   flex-direction: column;
   text-align: center;
   border: 1px green solid;
-  width: 24vw;
+  width: 27.5vw;
+  margin: auto;
+  margin-top: 0%;
 }
 
 .subBox2{
@@ -38,7 +40,9 @@
   flex-direction: column;
   text-align: center;
   border: 1px green solid;
-  width: 49vw;
+  width: 40vw;
+  margin: auto;
+  margin-top: 0%;
 }
 
 .subBox3{
@@ -46,24 +50,27 @@
   flex-direction: column;
   text-align: center;
   border: 1px green solid;
-  width: 24vw;
+  width: 27.5vw;
+  margin: auto;
+  margin-top: 0%;
 }
 
 .timeBox{
   height: 90vh;
-  border: 2px solid rgb(255, 0, 0);
+  border: 2px solid rgb(44, 44, 44);
+  border-radius: 16px;
 }
 
 .taskListBox{
   margin: auto;
   height: 80vh;
-  border: 8px black solid;
 }
 
-.taskManagerManager{
-  border: 4px black solid;
-  height: 92vh;
-}
 
+
+.notesManager{
+  border: 2px black solid;
+  border-radius: 16px;
+}
 
 

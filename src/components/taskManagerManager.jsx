@@ -2,6 +2,7 @@ import React from 'react'
 import TaskManager from './taskManager';
 import {useState} from 'react'
 import {v4 as uuidv4} from  'uuid'
+import '../styles/taskManagerManager.css'
 
 function TaskManagerManager(){
 
@@ -19,7 +20,7 @@ function TaskManagerManager(){
 
 
     return(
-        <div className='taskManager'>
+        <div className='taskManagerManager'>
             <h1>Lists</h1>
             <button onClick={() => addTaskManager()}>Add list</button>
             {taskManagerList.map( (taskManager) => <TaskManager list={taskManager} key={taskManager.id} db={taskManagerList} refresh={setTaskManagerList}/>)}
