@@ -3,7 +3,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   text-align: center;
-  background-color: #3B3B3B;
+  background-color: #222222;
 }
 
 .tittle{
@@ -12,12 +12,17 @@
   font-size: 4vh;
   width: fit-content;
   text-align: center;
+  color: #f7f7f7;
+  border: 2px solid #f7f7f7;
+  border-radius: 8px;
+  background-color: #222222;
 
 }
 
 .subtittle{
   margin-top: 0%;
   font-size: 2vh;
+  color: #f7f7f7;
 }
 
 
@@ -30,7 +35,6 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  border: 1px green solid;
   width: 27.5vw;
   margin: auto;
   margin-top: 0%;
@@ -40,7 +44,6 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  border: 1px green solid;
   width: 40vw;
   margin: auto;
   margin-top: 0%;
@@ -50,7 +53,6 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  border: 1px green solid;
   width: 27.5vw;
   margin: auto;
   margin-top: 0%;
@@ -58,8 +60,6 @@
 
 .timeBox{
   height: 90vh;
-  border: 2px solid rgb(44, 44, 44);
-  border-radius: 16px;
 }
 
 .taskListBox{
@@ -67,11 +67,5 @@
   height: 80vh;
 }
 
-
-
-.notesManager{
-  border: 2px black solid;
-  border-radius: 16px;
-}
 
 

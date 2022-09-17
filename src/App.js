@@ -17,14 +17,13 @@ function App() {
   return (
     <div className="App">
       <input type='text' value={tittle} onChange={ev => getTittle(ev.target.value)} className='tittle' />
-      <h3 className='subtittle'><em> &nbsp; &nbsp; &nbsp; by Short Workflow</em></h3>
+      <h3 className='subtittle'><em> &nbsp; &nbsp; &nbsp; by agutig.github</em></h3>
 
       <div className='mainBox'>
         <div className='subBox1'>
           <div className='timeBox'>
                 <TimeManager></TimeManager>
           </div>
-          <PersistencyBox/>
         </div>
 
         
@@ -38,6 +37,10 @@ function App() {
         </div>
       
       </div>
+      
+      <footer>
+          <PersistencyBox/>
+      </footer>
       
     </div>
   );

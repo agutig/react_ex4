@@ -1,6 +1,9 @@
 
-.notesManager{
+.timeManager{
     border-radius: 16px;
+    width: 25vw;
+    margin: auto;
+    height: max-content;
     background-color: #3b3b3b;
     box-shadow: 0 1px 1px rgba(0,0,0,0.25), 
               0 2px 2px rgba(0,0,0,0.20), 
@@ -9,7 +12,7 @@
               0 16px 16px rgba(0,0,0,0.05);
 }
 
-.notesManagerTittle{
+.timeManagerTittle{
     display: flex;
     flex-direction: row;
     margin: auto;
@@ -17,19 +20,17 @@
     width: fit-content;
 }
 
-.notesManagerText{
+.timeManagerTittleText{
     margin: auto;
     font-size: 3vw;
     font-weight: 900;
     width: 10vw;
     letter-spacing: 0.5vw;
-    color: #e1e1e1;
+    color: #f7f7f7;
 }
 
-
-.notesManagerButton{
+.timeManagerTittleButton{
     margin-top: 2vh;
-    margin-left: 2vw;
     width: 5vh;
     height: 5vh;
     font-size: 3vh;

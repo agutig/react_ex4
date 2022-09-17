@@ -4,19 +4,19 @@ import '../styles/persistencyBox.css'
 
 function PersistencyBox(){
 
-    const [persistencyText , setPersistencyText] = useState("Only this sesion")
+    const [persistencyText , setPersistencyText] = useState("Sesion")
 
     function changeText(){
-        if(persistencyText === "Only this sesion"){
+        if(persistencyText === "Sesion"){
             setPersistencyText("Days")
         }else{
-            setPersistencyText("Only this sesion")
+            setPersistencyText("Sesion")
         }
     }
     
     return(
         <div className='persistencyBox'>
-            <span>Tasks saved for <button onClick={ () => changeText()}>{persistencyText}</button> </span>
+            <span className='persistencyBoxText'>Tasks saved for <button className='persistencyBoxButton' onClick={ () => changeText()}>{persistencyText}</button> </span>
         </div>
     );
 

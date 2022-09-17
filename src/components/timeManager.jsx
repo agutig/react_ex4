@@ -3,6 +3,7 @@ import Clock from './clock';
 import Timer from './timer';
 import {useState} from 'react'
 import {v4 as uuidv4} from  'uuid'
+import '../styles/timeManager.css'
 
 function TimeManager(){
 
@@ -45,11 +46,14 @@ function TimeManager(){
     }
 
     return(
-        <div>
-            <h1>Time</h1>
-            <div>
-                <button onClick={() => newComponent("clock")}>Add Clock</button>
-                <button onClick={() => newComponent("timer")}>Add Timer</button>
+        <div className='timeManager'>
+            <div className='timeManagerTittle'>
+                <p className='timeManagerTittleText' >Time</p>
+                <button className='timeManagerTittleButton' onClick={() => newComponent("clock")}>🕒</button>
+                <p>_</p>
+                <button className='timeManagerTittleButton' onClick={() => newComponent("timer")}>⌛</button>
+                <p>_</p>
+                <button className='timeManagerTittleButton' onClick={() => newComponent("timer")}>⏱️</button>
             </div>
             <div className='timeList'>
                 {timeManagerList.map( (componente)  => createComponent(componente) )  }
