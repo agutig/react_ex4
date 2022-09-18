@@ -19,12 +19,14 @@ function Note(props){
             return note
         })
         props.refresh(refreshedText)
+        localStorage.setItem('notes', JSON.stringify(refreshedText));
     }
 
     function deleteNote() {
 
         let refreshedList = props.list.filter( listTask => listTask.id !== props.id)
         props.refresh( refreshedList)
+        localStorage.setItem('notes', JSON.stringify(refreshedList));
     }
 
     return(

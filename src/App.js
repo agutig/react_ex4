@@ -2,7 +2,7 @@ import './App.css';
 import PersistencyBox from './components/persistencyBox';
 import TaskManagerManager from './components/taskManagerManager';
 import NotesManager from './components/notesManager';
-import {useState} from 'react'
+import {useState ,useEffect} from 'react'
 import TimeManager from './components/timeManager';
 
 function App() {
@@ -13,6 +13,12 @@ function App() {
   better this library and the posible combination with other libraries (redux)
   */
   const [tittle,getTittle] = useState("Proyect Name");
+
+  const [notes,getNotes] = useState([]);
+
+  useEffect(() => {
+    getNotes( JSON.parse(localStorage.getItem('notes')))
+  },[])
 
   return (
     <div className="App">
@@ -33,7 +39,7 @@ function App() {
 
 
         <div className='subBox3'>
-            <NotesManager></NotesManager>
+            <NotesManager data={notes}></NotesManager>
         </div>
       
       </div>

@@ -45,7 +45,7 @@ function TimeManager(){
     }
 
     function createComponent(component){
-        if (component.type == "clock"){
+        if (component.type === "clock"){
                 return (<Clock component={component}  list={timeManagerList} refresh={setTimeManagerList} />)
             }else if(component.type === "timer"){
                 return <Timer component={component}  list={timeManagerList} refresh={setTimeManagerList}/>

@@ -8,7 +8,6 @@ function Timer(props){
 
     const [count , setCount] = useState(0);
 
-    console.log()
     const [ hours , setHours] = useState(props.component.data.hours);
     const [ minutes , setMinutes] = useState(props.component.data.minutes);
     const [ seconds , setSeconds] = useState(props.component.data.seconds);
