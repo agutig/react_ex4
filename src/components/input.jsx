@@ -18,7 +18,7 @@ function Input(props){
                         completed: false,
                         id: uuidv4()
                     }
-                    taskManager.data = [task,...taskManager.data]
+                    taskManager.data = [...taskManager.data,task]
                 }
             }
             return taskManager;

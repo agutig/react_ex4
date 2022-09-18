@@ -25,7 +25,8 @@ function TaskManagerManager(){
                 <p className='TMMTitleText'>Lists</p>
                 <button className='TMMTitleButton' onClick={() => addTaskManager()}>+</button>
             </div>
-            {taskManagerList.map( (taskManager) => <TaskManager list={taskManager} key={taskManager.id} db={taskManagerList} refresh={setTaskManagerList}/>)}
+            {taskManagerList.map( (taskManager) => <TaskManager list={taskManager} key={taskManager.id} id={taskManager.id} db={taskManagerList} refresh={setTaskManagerList}/>)}
+            <p className='br'><br></br></p>
         </div>
     );
 

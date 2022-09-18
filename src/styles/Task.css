@@ -1,17 +1,31 @@
+.pointTaskBox{
+    display: flex;
+}
+
+.pointTask{
+    color: #e1e1e1;
+    width: 5vw;
+    word-wrap: break-word;
+    margin-left: 3vw;
+    font-weight: 900;
+    font-size: 2vh;
+}
 
 .taskBox{
     display: flex;
-    width: 25vw;
+    width: 23.25vw;
     text-align: center;
     margin: auto;
     margin-top: 1vh;
+    margin-left: 0vw;
     border: 3px rgb(51, 51, 51) solid;
     border-radius: 8px;
+    margin-left: -1vw;
 }
 
 .deleteButton{
 
-    width: 5vw;
+    width: 2vw;
     font-size: 1.5vw;
     font-weight: 400;
     text-align: center;
@@ -19,22 +33,14 @@
     border: 1px solid #272727;
     color: #e1e1e1;
     background-color: #3b3b3b;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.25), 
-              0 2px 2px rgba(0,0,0,0.20), 
-              0 4px 4px rgba(0,0,0,0.15), 
-              0 8px 8px rgba(0,0,0,0.10),
-              0 16px 16px rgba(0,0,0,0.05);
     
 }
 
 .taskText{
     color: #e1e1e1;
-    width: 20vw;
+    width: 23vw;
     word-wrap: break-word;
+    margin-left: 0vw;
 
 }
 
-.pointTaskBox{
-    display: flex;
-
-}

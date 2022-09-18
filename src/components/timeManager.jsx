@@ -58,6 +58,7 @@ function TimeManager(){
             <div className='timeList'>
                 {timeManagerList.map( (componente)  => createComponent(componente) )  }
             </div>
+            <p className='br'><br></br></p>
         </div>
     );
 

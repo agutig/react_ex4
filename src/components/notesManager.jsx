@@ -25,6 +25,7 @@ function NotesManager(){
             </div>
             
             {notesList.map((note) => <Note list={notesList} refresh={setNotesList} text={note.text} id={note.id} key={note.id}/>)}
+            <p className='br'><br></br></p>
         </div>
     );
 

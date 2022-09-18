@@ -40,7 +40,7 @@ function Input(props){
         if (isCompleted === false){
             return(
                 <div className='pointTaskBox'>
-                    <p> ⊳</p>
+                    <p className='pointTask'>▢</p>
                     <div className='taskBox' >
                         <span className='taskText' onClick={() => completeButton()}>{props.task.text}</span>
                         <button className='deleteButton' onClick={ () => deleteTask()} >-</button>     
@@ -50,7 +50,7 @@ function Input(props){
         }else{
             return(
                 <div className='pointTaskBox'>
-                    <p> ⊳</p>
+                    <p className='pointTask'>▢</p>
                     <div className='taskBox' >
                         <span className='taskText'  onClick={() => completeButton()}> <strike>{props.task.text}</strike></span>
                         <button className='deleteButton' onClick={ () => deleteTask()} >-</button>
