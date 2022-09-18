@@ -56,9 +56,9 @@ function Timer(props){
     function stopTimer(){
 
         if (stopCount){
-            return(<button onClick={() => setStopCount(!stopCount)}>Resume timer</button>);
+            return(<button className='buttonBoxButton' onClick={() => setStopCount(!stopCount)}>Resume timer</button>);
         }else{
-            return(<button onClick={() => setStopCount(!stopCount)}>Stop timer</button>);
+            return(<button className='buttonBoxButton' onClick={() => setStopCount(!stopCount)}>Stop timer</button>);
         }
     }
 
@@ -88,9 +88,9 @@ function Timer(props){
                 </div>
 
                 <div className='buttonsBox'>
-                    <button onClick={() => startTimer()}>Start timer</button>
+                    <button className='buttonBoxButton' onClick={() => startTimer()}>Start timer</button>
                     {stopTimer()}
-                    <button onClick={() => closeTimer()}>X</button>
+                    <button className='buttonBoxButton' onClick={() => closeTimer()}>X</button>
                 </div>
                 
             </div>
@@ -99,7 +99,7 @@ function Timer(props){
                 <p className='clockText'>{format.hour + ":" + format.minutes + ":" + format.seconds}</p>
             </div>
 
-            
+   
         </div>
     );
 
