@@ -1,6 +1,6 @@
 .fullContainer{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     text-align: center;
     margin: auto;
@@ -20,7 +20,8 @@
 .inputTimeBox{
     display: flex;
     flex-direction: row;
-    width: 24vw;
+    width: 22vw;
+    margin: auto;
 }
 
 
@@ -96,4 +97,8 @@
 .timeSelectorText{
     margin-top: 1vh;
     color: #e1e1e1;
+}
+
+.br{
+    font-size: 8vh;
 }

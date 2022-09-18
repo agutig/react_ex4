@@ -70,7 +70,7 @@ function Timer(props){
 
     return(
         <div className='fullContainer'>
-
+            
             <div className='inputTimeBox'>
                 <div className='timeSelectorBox'>
                     <p className='timeSelectorText'>Hours</p>
@@ -97,9 +97,11 @@ function Timer(props){
 
             <div className='timerContainer'>
                 <p className='clockText'>{format.hour + ":" + format.minutes + ":" + format.seconds}</p>
+                
             </div>
 
-   
+            <p className='br'><br></br></p>
+
         </div>
     );
 
