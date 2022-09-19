@@ -27,6 +27,10 @@ function App() {
         getNotes( JSON.parse(localStorage.getItem('notes')))
         getTMM(JSON.parse(localStorage.getItem('TMM')))
         getTimeManager(JSON.parse(localStorage.getItem('timeManager')))
+
+        if(notes === null){getNotes([])}
+        if(TMM === null){getTMM([])}
+        if(timeManager === null){ console.log("hey") ;getTimeManager([])}
       }
        
     }
