@@ -1,16 +1,24 @@
 import React from 'react'
-import {useState} from 'react'
+import {useState , useEffect} from 'react'
 import '../styles/persistencyBox.css'
 
-function PersistencyBox(){
+function PersistencyBox(props){
 
-    const [persistencyText , setPersistencyText] = useState("Sesion")
+    const [persistencyText , setPersistencyText] = useState(props.save)
+
+    useEffect(() => {
+        setPersistencyText(props.save)
+      },[props.save])
 
     function changeText(){
-        if(persistencyText === "Sesion"){
-            setPersistencyText("Days")
+        if(props.save === "sesion"){
+            setPersistencyText("days")
+            props.refresh("days")
+            localStorage.setItem('persistency',"days");
         }else{
             setPersistencyText("Sesion")
+            props.refresh("sesion")
+            localStorage.setItem('persistency',"sesion");
         }
     }
     

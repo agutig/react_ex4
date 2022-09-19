@@ -15,12 +15,20 @@ function NotesManager(props){
         }
         
         setNotesList([...notesList,newNote])
-        localStorage.setItem('notes',JSON.stringify([...notesList,newNote]));
+        if(props.save === "days"){
+            localStorage.setItem('notes',JSON.stringify([...notesList,newNote]));
+        }else{localStorage.setItem('notes', JSON.stringify([]))}
     }
 
     useEffect(() => {
         setNotesList(props.data)
       },[props.data])
+
+      useEffect(() => {
+        if(props.save === "days"){
+            localStorage.setItem('notes',JSON.stringify(notesList));
+        }
+      },[props.save])
 
     return(
         <div className='notesManager'>
@@ -28,8 +36,7 @@ function NotesManager(props){
                 <p className='notesManagerText' >Notes</p>
                 <button className='notesManagerButton' onClick={() => addNote()} > +</button>
             </div>
-            
-            {notesList.map((note) => <Note list={notesList} refresh={setNotesList} text={note.text} id={note.id} key={note.id}/>)}
+            {notesList.map((note) => <Note list={notesList} refresh={setNotesList} text={note.text} id={note.id} key={note.id} save={props.save}/>)}
             <p className='br'><br></br></p>
         </div>
     );

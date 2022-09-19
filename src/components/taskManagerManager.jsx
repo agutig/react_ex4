@@ -1,10 +1,10 @@
 import React from 'react'
 import TaskManager from './taskManager';
-import {useState} from 'react'
+import {useState ,useEffect} from 'react'
 import {v4 as uuidv4} from  'uuid'
 import '../styles/taskManagerManager.css'
 
-function TaskManagerManager(){
+function TaskManagerManager(props){
 
     const [taskManagerList ,setTaskManagerList] = useState([]);
 
@@ -17,6 +17,11 @@ function TaskManagerManager(){
         setTaskManagerList([...taskManagerList ,taskManager])
     }
 
+    useEffect(() => {
+        if(props.save === "days"){
+            localStorage.setItem('TMM',JSON.stringify(taskManagerList));
+        }
+      },[props.save])
 
 
     return(
