@@ -25,10 +25,10 @@ function NotesManager(props){
     },[props.data])
 
     useEffect(() => {
-        if(props.save === "days" && props.data !== []){
+        if(props.save === "days"){
             localStorage.setItem('notes',JSON.stringify(notesList));
         }
-    },[notesList])
+    },[notesList , props.save])
 
 
     return(

@@ -6,7 +6,7 @@ import '../styles/taskManagerManager.css'
 
 function TaskManagerManager(props){
 
-    const [taskManagerList ,setTaskManagerList] = useState([]);
+    const [taskManagerList ,setTaskManagerList] = useState(props.data);
 
     function addTaskManager() {
         const taskManager = {
@@ -18,10 +18,15 @@ function TaskManagerManager(props){
     }
 
     useEffect(() => {
+        setTaskManagerList(props.data)
+    },[props.data])
+
+    useEffect(() => {
         if(props.save === "days"){
             localStorage.setItem('TMM',JSON.stringify(taskManagerList));
         }
-      },[props.save])
+    },[taskManagerList ,  props.save])
+
 
 
     return(
