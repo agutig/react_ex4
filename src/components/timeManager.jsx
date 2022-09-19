@@ -9,7 +9,6 @@ import '../styles/timeManager.css'
 function TimeManager(props){
 
     const [timeManagerList ,setTimeManagerList] = useState(props.data);
-    console.log(props.data)
     useEffect(() => {
         setTimeManagerList(props.data)
     },[props.data])
