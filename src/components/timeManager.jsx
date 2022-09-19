@@ -16,7 +16,7 @@ function TimeManager(props){
 
     useEffect(() => {
         if(props.save === "days"){
-            localStorage.setItem('TimeManager',JSON.stringify(timeManagerList));
+            localStorage.setItem('timeManager',JSON.stringify(timeManagerList));
         }
     },[timeManagerList ,  props.save])
 

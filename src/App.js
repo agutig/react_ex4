@@ -30,7 +30,7 @@ function App() {
 
         if(notes === null){getNotes([])}
         if(TMM === null){getTMM([])}
-        if(timeManager === null){ console.log("hey") ;getTimeManager([])}
+        if(timeManager === null){ getTimeManager([])}
       }
        
     }
