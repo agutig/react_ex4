@@ -19,18 +19,12 @@ function Note(props){
             return note
         })
         props.refresh(refreshedText)
-        if(props.save === "days"){
-            localStorage.setItem('notes', JSON.stringify(refreshedText));
-        }else{localStorage.setItem('notes', JSON.stringify([]))}
     }
 
     function deleteNote() {
 
         let refreshedList = props.list.filter( listTask => listTask.id !== props.id)
         props.refresh( refreshedList)
-        if(props.save === "days"){
-            localStorage.setItem('notes', JSON.stringify(refreshedList));
-        }else{localStorage.setItem('notes', JSON.stringify([]))}
     }
 
     return(

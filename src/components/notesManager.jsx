@@ -17,18 +17,19 @@ function NotesManager(props){
         setNotesList([...notesList,newNote])
         if(props.save === "days"){
             localStorage.setItem('notes',JSON.stringify([...notesList,newNote]));
-        }else{localStorage.setItem('notes', JSON.stringify([]))}
+        }
     }
 
     useEffect(() => {
         setNotesList(props.data)
-      },[props.data])
+    },[props.data])
 
-      useEffect(() => {
-        if(props.save === "days"){
+    useEffect(() => {
+        if(props.save === "days" && props.data !== []){
             localStorage.setItem('notes',JSON.stringify(notesList));
         }
-      },[props.save])
+    },[notesList])
+
 
     return(
         <div className='notesManager'>

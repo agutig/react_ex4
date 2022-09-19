@@ -60,7 +60,6 @@ function App() {
       
       <footer>
           <PersistencyBox save={save} refresh={getSave}/>
-          {console.log(save)}
       </footer>
       
     </div>
