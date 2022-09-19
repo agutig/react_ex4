@@ -2,13 +2,23 @@ import React from 'react'
 import Clock from './clock';
 import Timer from './timer';
 import Chrono from './chrono';
-import {useState} from 'react'
+import {useState , useEffect} from 'react'
 import {v4 as uuidv4} from  'uuid'
 import '../styles/timeManager.css'
 
-function TimeManager(){
+function TimeManager(props){
 
-    const [timeManagerList ,setTimeManagerList] = useState([]);
+    const [timeManagerList ,setTimeManagerList] = useState(props.data);
+
+    useEffect(() => {
+        setTimeManagerList(props.data)
+    },[props.data])
+
+    useEffect(() => {
+        if(props.save === "days"){
+            localStorage.setItem('TimeManager',JSON.stringify(timeManagerList));
+        }
+    },[timeManagerList ,  props.save])
 
     function clock(){
         return {timeZone : 0}

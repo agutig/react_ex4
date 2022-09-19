@@ -17,6 +17,7 @@ function App() {
   const [save,getSave] = useState("sesion");
   const [notes,getNotes] = useState([]);
   const [TMM,getTMM] = useState([]); //TMM = Task manager manager
+  const [timeManager,getTimeManager] = useState([]); //TMM = Task manager manager
 
   useEffect(() => {
     let persistency = localStorage.getItem('persistency');
@@ -25,6 +26,7 @@ function App() {
       if(persistency === "days"){
         getNotes( JSON.parse(localStorage.getItem('notes')))
         getTMM(JSON.parse(localStorage.getItem('TMM')))
+        getTimeManager(JSON.parse(localStorage.getItem('timeManager')))
       }
        
     }
@@ -42,18 +44,18 @@ function App() {
       <div className='mainBox'>
         <div className='subBox1'>
           <div className='timeBox'>
-                <TimeManager></TimeManager>
+              <TimeManager data={timeManager} save={save}></TimeManager>
           </div>
         </div>
 
         
         <div className='subBox2'>
-              <TaskManagerManager data={TMM} save={save}/>
+            <TaskManagerManager data={TMM} save={save}/>
         </div>
 
 
         <div className='subBox3'>
-            <NotesManager data={notes} save={save}></NotesManager>
+          <NotesManager data={notes} save={save}></NotesManager>
         </div>
       
       </div>
