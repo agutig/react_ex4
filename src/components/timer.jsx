@@ -2,7 +2,7 @@ import React from 'react'
 import {useState ,useEffect} from 'react'
 import '../styles/timer.css'
 import sound from '../assets/sound_notification.mp3'
-import { click } from '@testing-library/user-event/dist/click';
+
 
 function Timer(props){
 
@@ -22,12 +22,13 @@ function Timer(props){
 
     useEffect(() => {
  
-        let magic = Math.trunc((deadline) - (date))
+        let magic = Math.trunc((deadline) - (date)) 
         console.log(magic)
+        console.log(stopCount)
 
         if(magic >= 0 && !stopCount){
+            console.log("pene")
             let interval = setInterval(() => { setCount(magic) },1000)
-            console.log(count)
             secondsToFormat()
             setDate(Math.trunc(new Date().getTime() /1000))
 
@@ -44,7 +45,7 @@ function Timer(props){
 
         }
 
-    },[count , date , stopCount, hours, minutes,seconds]);
+    },[count ,deadline, date , stopCount, hours, minutes,seconds]);
 
 
     function formatToSeconds(hours, minutes, seconds){
@@ -67,12 +68,21 @@ function Timer(props){
         secondsToFormat()
     }
 
+    function pauseTimer(){
+        startTimer()
+        let actual = Math.trunc (new Date().getTime() / 1000)
+        setDate(actual)
+        setDeadline(actual + count-1) 
+        setStopCount(!stopCount)
+        
+    }
+
     function stopTimer(){
 
         if (stopCount){
-            return(<button className='buttonBoxButton' onClick={() => setStopCount(!stopCount)}>Resume timer</button>);
+            return(<button className='buttonBoxButton' onClick={() => pauseTimer()}>Resume timer</button>);
         }else{
-            return(<button className='buttonBoxButton' onClick={() => setStopCount(!stopCount)}>Stop timer</button>);
+            return(<button className='buttonBoxButton' onClick={() => pauseTimer()}>Stop timer</button>);
         }
     }
 

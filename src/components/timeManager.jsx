@@ -56,11 +56,11 @@ function TimeManager(props){
 
     function createComponent(component){
         if (component.type === "clock"){
-                return (<Clock component={component}  list={timeManagerList} refresh={setTimeManagerList} />)
+                return (<Clock component={component}  list={timeManagerList} refresh={setTimeManagerList} key={component.id}/>)
             }else if(component.type === "timer"){
-                return <Timer component={component}  list={timeManagerList} refresh={setTimeManagerList}/>
+                return <Timer component={component}  list={timeManagerList} refresh={setTimeManagerList} key={component.id}/>
             }else{
-                return <Chrono component={component}  list={timeManagerList} refresh={setTimeManagerList}/>
+                return <Chrono component={component}  list={timeManagerList} refresh={setTimeManagerList} key={component.id}/>
             }
         
     }
