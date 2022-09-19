@@ -2,28 +2,40 @@ import React from 'react'
 import {useState ,useEffect} from 'react'
 import '../styles/timer.css'
 import sound from '../assets/sound_notification.mp3'
+import { click } from '@testing-library/user-event/dist/click';
 
 function Timer(props){
 
 
     const [count , setCount] = useState(0);
 
-    const [ hours , setHours] = useState(props.component.data.hours);
-    const [ minutes , setMinutes] = useState(props.component.data.minutes);
-    const [ seconds , setSeconds] = useState(props.component.data.seconds);
+    const [deadline, setDeadline] = useState(Math.trunc(new Date().getTime() /1000));
+    const [date, setDate] = useState(Math.trunc(new Date().getTime() /1000));
+
+    const [ hours , setHours] = useState(0);
+    const [ minutes , setMinutes] = useState(0);
+    const [ seconds , setSeconds] = useState(0);
 
     const [ stopCount , setStopCount] = useState(false);
     const [format , setFormat] = useState({hour: "00" , minutes: "00" , seconds: "00"});
 
 
     useEffect(() => {
-        
-        if(count >= 0 && !stopCount){
-            let interval = setInterval(() => { setCount(count - 1)},1000)
-            secondsToFormat()
+ 
+        let magic = Math.trunc((deadline) - (date))
+        console.log(magic)
 
-            if (count === 1){
-                new Audio(sound).play();
+        if(magic >= 0 && !stopCount){
+            let interval = setInterval(() => { setCount(magic) },1000)
+            console.log(count)
+            secondsToFormat()
+            setDate(Math.trunc(new Date().getTime() /1000))
+
+            if (magic === 1){
+                let not = new Audio(sound);
+                not.pause();
+                not.currentTime = 0;   
+                not.play();
             }
             
             return(() => {
@@ -32,7 +44,7 @@ function Timer(props){
 
         }
 
-    },[count , stopCount, hours, minutes,seconds]);
+    },[count , date , stopCount, hours, minutes,seconds]);
 
 
     function formatToSeconds(hours, minutes, seconds){
@@ -47,8 +59,11 @@ function Timer(props){
     }
 
     function startTimer(){
+        
         let timeToStop = formatToSeconds(hours,minutes,seconds)
-        setCount(timeToStop)
+        let actual = Math.trunc (new Date().getTime() / 1000)
+        setDeadline(actual + timeToStop)
+        setDate(actual)
         secondsToFormat()
     }
 
@@ -62,7 +77,6 @@ function Timer(props){
     }
 
     function closeTimer(){
-        console.log(props)
         let refreshedList = props.list.filter( listClock => listClock.id !== props.component.id)
         props.refresh( refreshedList)
     }
